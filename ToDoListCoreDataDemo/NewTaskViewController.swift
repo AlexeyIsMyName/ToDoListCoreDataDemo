@@ -15,6 +15,24 @@ class NewTaskViewController: UIViewController {
         textField.borderStyle = .roundedRect
         return textField
     }()
+    
+    private lazy var saveButton: UIButton = {
+        let button = UIButton()
+        
+        button.backgroundColor = UIColor(
+            red: 21/255,
+            green: 101/255,
+            blue: 192/255,
+            alpha: 1
+        )
+        
+        button.setTitle("Save Task", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(save), for: .touchUpInside)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,5 +56,9 @@ class NewTaskViewController: UIViewController {
             taskTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                     constant: -40)
         ])
+    }
+    
+    @objc private func save() {
+        
     }
 }
