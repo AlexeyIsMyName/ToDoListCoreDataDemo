@@ -52,7 +52,8 @@ class ToDoListViewController: UITableViewController {
     }
     
     @objc private func addNewTask() {
-//        let newTaskVC = NewTaskViewController()
+        let newTaskVC = NewTaskViewController()
+        present(newTaskVC, animated: true)
     }
 }
 
