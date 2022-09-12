@@ -110,6 +110,10 @@ class ToDoListViewController: UITableViewController {
         }
         
         task.name = taskName
+        taskList.append(task)
+        
+        let cellIndex = IndexPath(row: taskList.count - 1, section: 0)
+        tableView.insertRows(at: [cellIndex], with: .automatic)
         
         if context.hasChanges {
             do {
