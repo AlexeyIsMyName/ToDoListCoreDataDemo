@@ -6,13 +6,8 @@
 //
 
 import UIKit
-import CoreData
 
 class ToDoListViewController: UITableViewController {
-    
-    
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     
     private let cellID = "Cell"
     private var taskList: [Task] = []
@@ -22,7 +17,7 @@ class ToDoListViewController: UITableViewController {
         view.backgroundColor = .white
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         setupNavigationBar()
-        fetchData()
+        taskList = StorageManager.shared.fetchData()
     }
     
     private func setupNavigationBar() {
@@ -65,16 +60,6 @@ class ToDoListViewController: UITableViewController {
         showAlert(with: "New Task", and: "What do you want to do?")
     }
     
-    private func fetchData() {
-        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-        do {
-            taskList = try context.fetch(fetchRequest)
-            tableView.reloadData()
-        } catch let error {
-            print(error.localizedDescription)
-        }
-    }
-    
     private func showAlert(with title: String, and message: String) {
         let alert = UIAlertController(title: title,
                                       message: message,
@@ -99,30 +84,14 @@ class ToDoListViewController: UITableViewController {
     }
     
     private func save(_ taskName: String) {
-        guard let entityDescription = NSEntityDescription.entity(forEntityName: "Task",
-                                                                 in: context) else {
-            return
-        }
-        
-        guard let task = NSManagedObject(entity: entityDescription,
-                                         insertInto: context) as? `Task` else {
-            return
-        }
-        
-        task.name = taskName
-        taskList.append(task)
-        
-        let cellIndex = IndexPath(row: taskList.count - 1, section: 0)
-        tableView.insertRows(at: [cellIndex], with: .automatic)
-        
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch let error {
-                print(error.localizedDescription)
-            }
+        if let task = StorageManager.shared.save(taskName) {
+            taskList.append(task)
+            
+            let cellIndex = IndexPath(row: taskList.count - 1, section: 0)
+            tableView.insertRows(at: [cellIndex], with: .automatic)
         }
     }
+    
 }
 
 // MARK: - Table view data source
