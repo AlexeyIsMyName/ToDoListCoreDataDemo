@@ -83,4 +83,11 @@ class StorageManager {
         
         return false
     }
+    
+    func edit(task: Task) {
+        
+        let editTask = context.object(with: task.objectID)
+        print(editTask.hasChanges)
+        
+    }
 }
