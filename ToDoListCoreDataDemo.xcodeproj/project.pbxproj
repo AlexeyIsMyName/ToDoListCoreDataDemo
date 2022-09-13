@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E70C86B728D0AA6E00F75848 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70C86B628D0AA6E00F75848 /* StorageManager.swift */; };
 		E7B86EE428CCB9B500ED9CA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B86EE328CCB9B500ED9CA7 /* AppDelegate.swift */; };
 		E7B86EE828CCB9B500ED9CA7 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B86EE728CCB9B500ED9CA7 /* ToDoListViewController.swift */; };
 		E7B86EEE28CCB9B500ED9CA7 /* ToDoListCoreDataDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7B86EEC28CCB9B500ED9CA7 /* ToDoListCoreDataDemo.xcdatamodeld */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E70C86B628D0AA6E00F75848 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		E7B86EE028CCB9B500ED9CA7 /* ToDoListCoreDataDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListCoreDataDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B86EE328CCB9B500ED9CA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7B86EE728CCB9B500ED9CA7 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				E7B86EE328CCB9B500ED9CA7 /* AppDelegate.swift */,
+				E70C86B628D0AA6E00F75848 /* StorageManager.swift */,
 				E7B86EE728CCB9B500ED9CA7 /* ToDoListViewController.swift */,
 				E7B86EEF28CCB9B700ED9CA7 /* Assets.xcassets */,
 				E7B86EF128CCB9B700ED9CA7 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 				E7B86EE828CCB9B500ED9CA7 /* ToDoListViewController.swift in Sources */,
 				E7B86EEE28CCB9B500ED9CA7 /* ToDoListCoreDataDemo.xcdatamodeld in Sources */,
 				E7B86EE428CCB9B500ED9CA7 /* AppDelegate.swift in Sources */,
+				E70C86B728D0AA6E00F75848 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
