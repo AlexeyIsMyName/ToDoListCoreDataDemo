@@ -109,3 +109,14 @@ extension ToDoListViewController {
         return cell
     }
 }
+
+// MARK: - Table view delegate
+extension ToDoListViewController {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if StorageManager.shared.delete(task: taskList.remove(at: indexPath.row)) {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
+}

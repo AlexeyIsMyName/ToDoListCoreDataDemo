@@ -28,15 +28,18 @@ class StorageManager {
     }
 
     // MARK: - Core Data Saving support
-    func saveContext() {
+    func saveContext() -> Bool {
         if context.hasChanges {
             do {
                 try context.save()
+                return true
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+        
+        return false
     }
     
     func fetchData() -> [Task] {
@@ -63,15 +66,21 @@ class StorageManager {
         }
         
         task.name = taskName
-        if context.hasChanges {
-            do {
-                try context.save()
-                return task
-            } catch let error {
-                print(error.localizedDescription)
-            }
+        
+        if saveContext() {
+            return task
         }
         
         return nil
+    }
+    
+    func delete(task: Task) -> Bool {
+        context.delete(task)
+        
+        if saveContext() {
+            return true
+        }
+        
+        return false
     }
 }
